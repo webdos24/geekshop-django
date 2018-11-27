@@ -1,0 +1,28 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block base_menu %}
+	{% include 'mainapp/includes/inc_base_menu.html' %}
+{% endblock %}
+{% block clDiv %}
+	<h1>наши контакты</h1>
+{% endblock %}
+
+{% block content %}
+		<div class="location">
+			{% for city in locCity %}
+			<div class="location-1">
+				<i class="fa fa-map-marker fa-5x"></i>
+				<h4>Москва</h4>
+				{% for contact in clContacts %}
+				<div class="contacts">
+					<h5>{{ contact.h5 }}</h5>
+					<p>{{ contact.p }}</p>
+				</div>
+				{% endfor %}
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="clr"></div>
+{% endblock %}

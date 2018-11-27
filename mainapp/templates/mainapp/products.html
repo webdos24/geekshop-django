@@ -1,0 +1,46 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block base_menu %}
+	{% include 'mainapp/includes/inc_base_menu.html' %}
+{% endblock %}
+
+{% block clDiv %}{% endblock %}
+
+{% block content %}
+		<div class="details">
+			<div class="links clearfix">
+				{% include 'mainapp/includes/products/inc_product_categories.html' %}
+			</div>
+			<div class="details-products">
+				{% include 'mainapp/includes/products/inc_details_slider.html' %}
+				{% include 'mainapp/includes/products/inc_details_description.html' %}
+			</div>
+
+			<div class="related">
+				<div class="title clearfix">
+					<h2>Похожие продукты</h2>
+					<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
+				</div>
+				<div class="related-products clearfix">
+
+					{% for img in related_products %}
+					<div class="block">
+						<a href="#"><img src="{{ img }}" alt="">
+							<div class="text">
+								<img src="{% static 'img/icon-hover.png' %}" alt="img">
+								<h4>Стул повышенного качества</h4>
+								<p>Не оторваться. </p>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+
+		<div class="clr"></div>
+
+	</div>
+{% endblock %}
